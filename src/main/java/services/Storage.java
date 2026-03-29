@@ -16,6 +16,7 @@ public class Storage {
 
     public  List<Book> loadBooks(){
         List<Book> books = new ArrayList<>();
+        int id =0 ;
 
         String file = "";
         try (BufferedInputStream fis = new BufferedInputStream(new FileInputStream(fileName))){
@@ -42,10 +43,14 @@ public class Storage {
 
 
                 Book book = new Book(Integer.parseInt(model[0]),model[1],model[2],Boolean.parseBoolean(model[3].trim()));
-                Book.counter = book.getId();
+                if (id <= book.getId()){
+                    id = book.getId();
+                }
+
 
                 books.add(book);
             }
+            Book.counter = id;
         }
 
 
