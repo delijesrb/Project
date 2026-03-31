@@ -18,13 +18,13 @@ public class Storage {
         List<Book> books = new ArrayList<>();
         int id =0 ;
 
-        String file = "";
+        StringBuilder file = new StringBuilder() ;
         try (BufferedInputStream fis = new BufferedInputStream(new FileInputStream(fileName))){
 
             int r ;
             while ((r =  fis.read())!=-1){
 
-                file += (char)r;
+                file.append((char) r);
 
 
 
@@ -35,7 +35,7 @@ public class Storage {
         } catch (IOException e) {
             System.err.println("ERROR BY FILE RIDING  "+ e.getMessage());
         }
-        String[] line = file.split("\n");
+        String[] line = file.toString().split("\n");
 
         for (int i = 0; i < line.length; i++) {
             String[] model = line[i].split(",");

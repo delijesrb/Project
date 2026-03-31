@@ -34,7 +34,6 @@ public class Book implements Serializable {
     }
 
     public Book setId( ) {
-        this.id = counter;
         return this;
     }
 
